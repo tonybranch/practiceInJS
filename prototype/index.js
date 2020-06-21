@@ -1,7 +1,131 @@
 'use strict'
 
-const arrow = (a, b) => a + b
-console.log(arrow(5, 8));
+const person = {
+  name: 'Tony',
+  age: 42,
+  isProgrammer: true,
+  languages: ['ru', 'en', 'de'],
+  'complex key': 'Complex value',
+  // [Date.now()]: '',
+  ['key_' + (40 + 2)]: 'key42',
+  hello() {
+    console.log('Hello!')
+  }
+}
+
+// Object.keys(person).forEach((key) => {
+//   console.log(person[key]);
+// })
+
+// const {name, age: personAge = 10, languages} = person
+// console.log(name, personAge, languages)
+
+// for(let key in person) {
+//   if(person.hasOwnProperty(key)) {
+//     console.log(person[key])
+//   }
+// }
+
+// person.hello()
+// console.log(person.name)
+// console.log(person.age)
+// console.log(person['age'])
+// console.log(person['complex key'])
+// console.log(person['key_42'])
+
+// person.age++
+// console.log(person.age)
+// console.log(person)
+// // person.key_42 = undefined
+// delete person.key_42
+// console.log(person)
+
+// const cars = ['Mazda', 'Ford', 'F1']
+
+// const upperCaseCars = cars.map( car => {
+//   return car.toUpperCase()
+// })
+
+// console.log(upperCaseCars)
+
+// const cars = ['Mazda', 'Ford', 'F1']
+// console.log(cars.includes('Mazda'))
+
+// const reverseItem = (text) => console.log(text.split('').reverse().join(''))
+// reverseItem('Hello')
+
+// const cars = ['Mazda', 'Ford', 'F1']
+
+// console.log(cars.indexOf('F1'))
+// const index = cars.indexOf('F1')
+// console.log(cars[index])
+
+
+// let people = [
+//   {name: 'Tony', budget: 3800},
+//   {name: 'Elena', budget: 2700},
+//   {name: 'Vladilen', budget: 1100},
+//   {name: 'Branch', budget: 1300},
+//   {name: 'Empty', budget: 0}
+// ]
+
+// let cmd = 100
+// const lambdaPerson = people.find(person => {
+//   if(person.budget === cmd) {
+//     return person.budget;
+//   }
+//   if(typeof person.budget === undefined) {
+//     return person.budget === cmd ? person.budget : 'Empty';
+//   }
+// })
+// console.log(lambdaPerson)
+
+// const index = people.findIndex(function(person) {
+//   return person.budget === 3800
+// })
+
+// console.log(index)
+// console.log(people[index])
+
+// const indexPerson = people.find(function(person) {
+//   return person.budget === 2700
+// })
+
+// console.log(indexPerson)
+
+// for (const personFor of people) {
+//   if(personFor.name === 'Vladilen') console.log(personFor)
+// }
+
+// const cars = ['Mazda', 'Ford', 'F1']
+
+// cars.push('BMW')
+// cars.unshift('Volga')
+
+// console.log(cars)
+
+// const firsItem = cars.shift()
+// console.log(firsItem)
+// console.log(cars)
+// const endItem = cars.pop()
+// console.log(endItem)
+// console.log(cars)
+
+
+// function createMember(name) {
+//   return function(lastName) {
+//     console.log(name + ' ' + lastName);
+//   }
+// }
+
+// const logName = createMember('Tony')
+// console.log(logName('Branch'));
+// console.log(logName);
+// console.log(createMember);
+
+// const arrow = (a = 5, b = a ** 2) => a + b
+// console.log(arrow(5, 8));
+// console.log(arrow());
 
 // let counter = 0
 // const interval = setInterval(function() {
