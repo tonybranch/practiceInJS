@@ -1,34 +1,78 @@
 'use strict'
 
-const person = {
-  name: 'Tony',
-  age: 42,
-  isProgrammer: true,
-  languages: ['ru', 'en', 'de'],
-  'complex key': 'Complex value',
-  // [Date.now()]: '',
-  ['key_' + (40 + 2)]: 'key42',
-  hello() {
-    console.log('Hello!')
-  },
-  info() {
-    console.info('Information about Person [name]:', this.name)
+const delay = (wait = 1000) => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject('Repeat to-do...')
+    }, wait)
+  })
+  return promise
+}
+
+// delay(2500)
+//   .then(() => {
+//     console.log('After 2 second.')
+//   })
+//   .catch(err => console.error('Error:', err))
+//   .finally(() => console.log('Finaly'))
+
+const getData = () => new Promise(resolve => resolve([
+  1,1,2,3,5,8,13
+]))
+
+// getData().then(data => console.log(data))
+
+async function asyncExample() {
+  try {
+    await delay(3000)
+    const data = await getData()
+    console.log('Data:', data)
+  } catch (error) {
+    console.log(error)
+  } finally {
+    console.log('Finally.')
   }
 }
 
-const logger = {
-  keys() {
-    console.log('Object: ', Object.keys(this))
-  },
+asyncExample()
 
-  keysAndValues() {
-    Object.keys(this).forEach(function(key) {
-      console.log(`'${key}': ${this[key]}`)
-    }.bind(this))
-  }
-}
+// const delay = (callback, wait = 1000) => {
+//   setTimeout(callback, wait)
+// }
 
-logger.keysAndValues.call(person)
+// delay(() => {
+//   console.log('After 2 second.')
+// }, 2000)
+
+// const person = {
+//   name: 'Tony',
+//   age: 42,
+//   isProgrammer: true,
+//   languages: ['ru', 'en', 'de'],
+//   'complex key': 'Complex value',
+//   // [Date.now()]: '',
+//   ['key_' + (40 + 2)]: 'key42',
+//   hello() {
+//     console.log('Hello!')
+//   },
+//   info() {
+//     console.info('Information about Person [name]:', this.name)
+//   }
+// }
+
+// const logger = {
+//   keys() {
+//     console.log('Object: ', Object.keys(this))
+//   },
+
+//   keysAndValues() {
+//     Object.keys(this).forEach(function(key) {
+//       console.log(`'${key}': ${this[key]}`)
+//     }.bind(this))
+//   }
+// }
+
+// logger.keysAndValues.call(person)
 
 // const bound = logger.keys.bind(person)
 // bound()
