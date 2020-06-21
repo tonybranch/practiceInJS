@@ -10,8 +10,30 @@ const person = {
   ['key_' + (40 + 2)]: 'key42',
   hello() {
     console.log('Hello!')
+  },
+  info() {
+    console.info('Information about Person [name]:', this.name)
   }
 }
+
+const logger = {
+  keys() {
+    console.log('Object: ', Object.keys(this))
+  },
+
+  keysAndValues() {
+    Object.keys(this).forEach(function(key) {
+      console.log(`'${key}': ${this[key]}`)
+    }.bind(this))
+  }
+}
+
+logger.keysAndValues.call(person)
+
+// const bound = logger.keys.bind(person)
+// bound()
+
+// logger.keys.call(person)
 
 // Object.keys(person).forEach((key) => {
 //   console.log(person[key]);
